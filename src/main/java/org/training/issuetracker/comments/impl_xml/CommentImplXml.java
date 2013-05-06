@@ -1,57 +1,44 @@
-package org.training.issuetracker.user.impl_xml;
+package org.training.issuetracker.comments.impl_xml;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.training.issuetracker.user.User;
-import org.training.issuetracker.user.factory.UserDAO;
+import org.training.issuetracker.comments.Comment;
+import org.training.issuetracker.comments.factory.CommentDAO;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+public class CommentImplXml extends DefaultHandler implements CommentDAO{
 
-public class UserImplXml extends DefaultHandler implements UserDAO {
-	
-	private List<User> users= new ArrayList<User>();
+	private List<Comment> comments= new ArrayList<Comment>();
 	private TagsEnum currentEnum = null;
-	private User user;
+	private Comment comment;
 	
 	@Override
-	public User getUser(String email, String password, String ... realPath) {
-		List<User> users = getUsers(realPath[0]);
-		for (User user : users) {
-			if (user.getEmailAddress().equals(email) && user.getPassword().equals(password)) {
-				return user;
-			}
-		}
+	public Comment getCommentById(Long id, String... realPath) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	@Override
-	public User getUserById(Long id, String... realPath) {
-		List<User> users = getUsers(realPath[0]);
-		for (User user : users) {
-			if (user.getId() == id) {
-				return user;
-			}
-		}
-		return null;
-	}
-
-	private List<User> getUsers(String realPath) {
+	private List<Comment> getComments(String realPath) {
 		try {
 			XMLReader reader = XMLReaderFactory.createXMLReader();
 			reader.setContentHandler(this);
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser parser = factory.newSAXParser();
-			parser.parse(realPath + "\\org\\training\\issuetracker\\res\\users.xml", this);
+			parser.parse(realPath + "\\org\\training\\issuetracker\\res\\comment.xml", this);
 		} catch (SAXException e) {
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
@@ -60,14 +47,14 @@ public class UserImplXml extends DefaultHandler implements UserDAO {
 			e.printStackTrace();
 		}
 
-		return users;
+		return comments;
 	}
 	public void startElement(String uri, String localName, String qName, Attributes attrs) { 
 		currentEnum = TagsEnum.valueOf(qName.toUpperCase());
 		switch (currentEnum) { 
-		case USER:
-			user = new User();
-			user.setId(Long.valueOf(attrs.getValue(0)));
+		case COMMENT:
+			comment = new Comment();
+			comment.setId(Long.valueOf(attrs.getValue(0)));
 			break;
 		default:
 			break;
@@ -75,8 +62,8 @@ public class UserImplXml extends DefaultHandler implements UserDAO {
 	}
 	
 	public void endElement(String uri, String localName, String qName) { 
-		if (qName.toUpperCase().equals(TagsEnum.USER.toString())) { 
-			users.add(user);
+		if (qName.toUpperCase().equals(TagsEnum.COMMENT.toString())) { 
+			comments.add(comment);
 		}
 		currentEnum = null;
 	} 
@@ -87,19 +74,33 @@ public class UserImplXml extends DefaultHandler implements UserDAO {
 			return;
 		}
 		switch (currentEnum) { 
-		case FIRST_NAME: 
-			user.setFirstName(s);
+		case ISSUE_ID: 
+			comment.setIssueId(Long.valueOf(s));
 			break;
-		case LAST_NAME:
-			user.setLastName(s);
-		case EMAIL_ADDRESS:
-			user.setEmailAddress(s);
-		case ROLE:
-			user.setRole(s);
-		case PASSWORD:
-			user.setPassword(s);
+		case ADDED_BY:
+			comment.setAddedBy(Long.valueOf(s));
+			break;
+		case ADD_DATE:
+			comment.setAddDate(getFormattedDate(s));
+			break;
+		case TEXT:
+			comment.setText(s);
+			break;
 		default:
 			break;
 		}
 	}
+	
+	private static Date getFormattedDate(String dateStr) {
+		Date date = null;
+		DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+		try {
+			date = (Date) df.parse(dateStr);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
+	}
+
+
 }

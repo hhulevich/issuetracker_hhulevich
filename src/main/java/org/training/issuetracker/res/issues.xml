@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues>
+	<issue id="1">
+		<create_date>23.04.2013</create_date>
+		<created_by>1</created_by> 
+		<modify_date>04.05.2012</modify_date>
+		<modified_by>2</modified_by>
+		<summary>button login</summary>
+		<description>button login does not work</description>
+		<status>new</status>
+		<resolution>to fix</resolution>
+		<type>regression</type>
+		<priority>4</priority>
+		<project>issue tracker</project>
+		<build_found>123</build_found>
+		<assignee></assignee>
+	</issue>
+	<issue id="2">
+		<create_date>15.03.2013</create_date>
+		<created_by>2</created_by> 
+		<modify_date>15.04.2013</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> button submit does not work</description>
+		<status>assigned</status>
+		<resolution>to fix</resolution>
+		<type>regression</type>
+		<priority>4</priority>
+		<project>issue tracker</project>
+		<build_found>123</build_found>
+		<assignee>2</assignee>
+	</issue>
+</issues>

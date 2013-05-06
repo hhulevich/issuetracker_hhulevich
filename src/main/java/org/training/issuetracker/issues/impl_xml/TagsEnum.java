@@ -1,0 +1,6 @@
+package org.training.issuetracker.issues.impl_xml;
+
+public enum TagsEnum {
+	ISSUES, ISSUE, ID, CREATE_DATE, CREATED_BY, MODIFY_DATE, MODIFIED_BY, SUMMARY, DESCRIPTION, 
+	STATUS, RESOLUTION, TYPE, PRIORITY, PROJECT, BUILD_FOUND, ASSIGNEE;
+}

@@ -7,4 +7,5 @@ public interface UserDAO {
 	
 	public User getUser(String email, String password, String ...realPath);
 	
+	public User getUserById(Long id, String ...realPath);
 }
