@@ -41,7 +41,7 @@ public class UserImplXml extends DefaultHandler implements UserDAO{
 			reader.setContentHandler(this);
 			SAXParserFactory factory = SAXParserFactory.newInstance();
 			SAXParser parser = factory.newSAXParser();
-			parser.parse(realPath, this);
+			parser.parse(realPath + "\\org\\training\\issuetracker\\res\\users.xml", this);
 		} catch (SAXException e) {
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
@@ -57,15 +57,15 @@ public class UserImplXml extends DefaultHandler implements UserDAO{
 		switch (currentEnum) { 
 		case USER:
 			user = new User();
-			break;
-		case ID: 
 			user.setId(Long.valueOf(attrs.getValue(0)));
+			break;
+		default:
 			break;
 		}
 	}
 	
 	public void endElement(String uri, String localName, String qName) { 
-		if (qName.toUpperCase().equals(TagsEnum.USER)) { 
+		if (qName.toUpperCase().equals(TagsEnum.USER.toString())) { 
 			users.add(user);
 		}
 		currentEnum = null;
@@ -88,6 +88,8 @@ public class UserImplXml extends DefaultHandler implements UserDAO{
 			user.setRole(s);
 		case PASSWORD:
 			user.setPassword(s);
+		default:
+			break;
 		}
 	}
 }
