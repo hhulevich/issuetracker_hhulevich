@@ -42,7 +42,7 @@ public class LoginController extends AbstractBaseController {
 			jumpError("/loginPage", "User not exist", request, response);
 		} else {
 			session.setAttribute("user", user);
-			jump("/sample", request, response);
+			jump("/homePage", request, response);
 		}
 	}
 }

@@ -37,7 +37,7 @@ public class IssueImplXml  extends DefaultHandler implements IssueDAO {
 		return null;
 	}
 	
-	private List<Issue> getIssues(String realPath) {
+	public List<Issue> getIssues(String realPath) {
 		try {
 			XMLReader reader = XMLReaderFactory.createXMLReader();
 			reader.setContentHandler(this);
