@@ -1,16 +1,19 @@
 package org.training.issuetracker.issues;
 
-import java.util.Date;
+import java.io.Serializable;
 
-import org.training.issuetracker.items.Item;
+public class IssueView implements Serializable {
 
-public class Issue implements Item {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private long id;
-	private Date createDate;
-	private long createdBy;
-	private Date modifyDate;
-	private long modifiedBy;
+	private String createDate;
+	private String createdBy;
+	private String modifyDate;
+	private String modifiedBy;
 	private String summary;
 	private String description;
 	private String status;
@@ -19,16 +22,16 @@ public class Issue implements Item {
 	private String priority;
 	private String project;
 	private int buildFound;
-	private long assignee;
+	private String assignee;
 
-	public Issue() {
+	public IssueView() {
 		super();
 	}
 
-	public Issue(long id, Date createDate, long createdBy, Date modifyDate,
-			long modifiedBy, String summary, String description, String status,
-			String resolution, String type, String priority, String project,
-			int build_found, long assignee) {
+	public IssueView(long id, String createDate, String createdBy,
+			String modifyDate, String modifiedBy, String summary,
+			String description, String status, String resolution, String type,
+			String priority, String project, int buildFound, String assignee) {
 		super();
 		this.id = id;
 		this.createDate = createDate;
@@ -42,7 +45,7 @@ public class Issue implements Item {
 		this.type = type;
 		this.priority = priority;
 		this.project = project;
-		this.buildFound = build_found;
+		this.buildFound = buildFound;
 		this.assignee = assignee;
 	}
 
@@ -54,35 +57,35 @@ public class Issue implements Item {
 		this.id = id;
 	}
 
-	public Date getCreateDate() {
+	public String getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
 
-	public long getCreatedBy() {
+	public String getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(long createdBy) {
+	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
 
-	public Date getModifyDate() {
+	public String getModifyDate() {
 		return modifyDate;
 	}
 
-	public void setModifyDate(Date modifyDate) {
+	public void setModifyDate(String modifyDate) {
 		this.modifyDate = modifyDate;
 	}
 
-	public long getModifiedBy() {
+	public String getModifiedBy() {
 		return modifiedBy;
 	}
 
-	public void setModifiedBy(long modifiedBy) {
+	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
 
@@ -146,15 +149,15 @@ public class Issue implements Item {
 		return buildFound;
 	}
 
-	public void setBuild_found(int build_found) {
-		this.buildFound = build_found;
+	public void setBuildFound(int buildFound) {
+		this.buildFound = buildFound;
 	}
 
-	public long getAssignee() {
+	public String getAssignee() {
 		return assignee;
 	}
 
-	public void setAssignee(long assignee) {
+	public void setAssignee(String assignee) {
 		this.assignee = assignee;
 	}
 }

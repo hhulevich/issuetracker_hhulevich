@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.training.issuetracker.res.Constants;
 import org.training.issuetracker.user.User;
 import org.training.issuetracker.user.factory.UserDAO;
 import org.training.issuetracker.user.factory.UserDAOFactory;
@@ -32,17 +33,15 @@ public class LoginController extends AbstractBaseController {
 			return;
 		}
 		
-		String realPath = getServletConfig().getServletContext().getRealPath(
-				"/")
-				+ "WEB-INF\\classes\\";
+		String realPath = getRealPath();
 		UserDAO userDAO = (UserDAO) UserDAOFactory
-				.getDAO("org.training.issuetracker.user.factory.UserDAO");
+				.getDAO(Constants.USER_DAO);
 		User user = userDAO.getUser(email, password, realPath);
 		if (user == null) {
 			jumpError("/loginPage", "User not exist", request, response);
 		} else {
 			session.setAttribute("user", user);
-			jump("/homePage", request, response);
+			jump("/homeController", request, response);
 		}
 	}
 }

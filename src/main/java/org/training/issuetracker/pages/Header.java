@@ -24,16 +24,17 @@ public class Header extends AbstractBaseController {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<div style='position:absolute; top:5px;'>");
-		out.println("<a href='/issuetracker/loginPage'>Login</a>");
-		out.println("<a href='/issuetracker/homePage'>Home </a>");
+		out.println("<div style='background-color: #D4F6FA;'>");
+		out.println("<a href='/issuetracker/homeController'>Home </a>");
 		if (user != null) {
+			out.println("<a href='/issuetracker/logoutController'>Logout</a>");
 			out.println("<b> welcom " + user.getFirstName() + " "
 					+ user.getLastName() + "</b");
+		} else {
+			out.println("<a href='/issuetracker/loginPage'>Login</a>");
+			out.println("Please login");
 		}
 		out.println("</div>");
-		out.println("</html>");
 	}
 
 }

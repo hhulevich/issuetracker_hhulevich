@@ -6,14 +6,21 @@
 
 	<display-name>Issue Tracker</display-name>
 	<description>JEE training project implementation by Hanna Hulevich</description>
-
-	<servlet>
-		<servlet-name>SampleServlet</servlet-name>
-		<servlet-class>org.training.issuetracker.SampleServlet</servlet-class>
-	</servlet>
 	<servlet>
 		<servlet-name>LoginController</servlet-name>
 		<servlet-class>org.training.issuetracker.controllers.LoginController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutController</servlet-name>
+		<servlet-class>org.training.issuetracker.controllers.LogoutController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>HomeController</servlet-name>
+		<servlet-class>org.training.issuetracker.controllers.HomeController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>IssueController</servlet-name>
+		<servlet-class>org.training.issuetracker.controllers.IssueController</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LoginPage</servlet-name>
@@ -24,12 +31,32 @@
 		<servlet-class>org.training.issuetracker.pages.HomePage</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>IssuePage</servlet-name>
+		<servlet-class>org.training.issuetracker.pages.IssuePage</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Header</servlet-name>
 		<servlet-class>org.training.issuetracker.pages.Header</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Footer</servlet-name>
+		<servlet-class>org.training.issuetracker.pages.Footer</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutController</servlet-name>
+		<url-pattern>/logoutController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HomeController</servlet-name>
+		<url-pattern>/homeController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IssueController</servlet-name>
+		<url-pattern>/issueController</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LoginPage</servlet-name>
@@ -40,11 +67,15 @@
 		<url-pattern>/homePage</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>SampleServlet</servlet-name>
-		<url-pattern>/sample</url-pattern>
+		<servlet-name>IssuePage</servlet-name>
+		<url-pattern>/issuePage</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Header</servlet-name>
 		<url-pattern>/header</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Footer</servlet-name>
+		<url-pattern>/footer</url-pattern>
 	</servlet-mapping>
 </web-app>

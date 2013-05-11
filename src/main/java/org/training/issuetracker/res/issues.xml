@@ -1,33 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues>
+<issues xmlns="http://www.training.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.training.org issues.xsd">
 	<issue id="1">
-		<create_date>23.04.2013</create_date>
-		<created_by>1</created_by> 
-		<modify_date>04.05.2012</modify_date>
+		<create_date>2013-04-23</create_date>
+		<created_by>1</created_by>
+		<modify_date>2012-05-04</modify_date>
 		<modified_by>2</modified_by>
 		<summary>button login</summary>
 		<description>button login does not work</description>
 		<status>new</status>
 		<resolution>to fix</resolution>
-		<type>regression</type>
-		<priority>4</priority>
+		<type>cosmetic</type>
+		<priority>important</priority>
 		<project>issue tracker</project>
 		<build_found>123</build_found>
 		<assignee></assignee>
 	</issue>
 	<issue id="2">
-		<create_date>15.03.2013</create_date>
-		<created_by>2</created_by> 
-		<modify_date>15.04.2013</modify_date>
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
 		<modified_by>1</modified_by>
 		<summary>button submit</summary>
 		<description> button submit does not work</description>
 		<status>assigned</status>
 		<resolution>to fix</resolution>
-		<type>regression</type>
-		<priority>4</priority>
+		<type>feature</type>
+		<priority>minor</priority>
 		<project>issue tracker</project>
 		<build_found>123</build_found>
 		<assignee>2</assignee>
+	</issue>
+	<issue id="3">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="4">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description>dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="5">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="6">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="7">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="8">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="9">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="10">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="11">
+		<create_date>2013-04-23</create_date>
+		<created_by>1</created_by>
+		<modify_date>2012-05-04</modify_date>
+		<modified_by>2</modified_by>
+		<summary>button login</summary>
+		<description>button login does not work</description>
+		<status>new</status>
+		<resolution>to fix</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue tracker</project>
+		<build_found>123</build_found>
+		<assignee></assignee>
+	</issue>
+	<issue id="12">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> button submit does not work</description>
+		<status>assigned</status>
+		<resolution>to fix</resolution>
+		<type>feature</type>
+		<priority>minor</priority>
+		<project>issue tracker</project>
+		<build_found>123</build_found>
+		<assignee>2</assignee>
+	</issue>
+	<issue id="13">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="14">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description>dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="15">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="16">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="17">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="18">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="19">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
+	</issue>
+	<issue id="20">
+		<create_date>2013-03-15</create_date>
+		<created_by>2</created_by>
+		<modify_date>2013-04-15</modify_date>
+		<modified_by>1</modified_by>
+		<summary>button submit</summary>
+		<description> dbutton submit does not work</description>
+		<status>closed</status>
+		<resolution>zsfdgf</resolution>
+		<type>cosmetic</type>
+		<priority>important</priority>
+		<project>issue</project>
+		<build_found>345</build_found>
+		<assignee>1</assignee>
 	</issue>
 </issues>

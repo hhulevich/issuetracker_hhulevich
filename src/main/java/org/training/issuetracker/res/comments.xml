@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<comments>
+<comments xmlns="http://www.training.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.training.org comments.xsd">
 	<comment id="1">
 		<issue_id>1</issue_id>
 		<added_by>1</added_by>
-		<add_date>12.08.2012</add_date>
+		<add_date>2012-08-12</add_date>
 		<text>It is not a bug</text>
+	</comment>
+	<comment id="2">
+		<issue_id>2</issue_id>
+		<added_by>2</added_by>
+		<add_date>2012-08-12</add_date>
+		<text>It is not a bug</text>
+	</comment>
+	<comment id="3">
+		<issue_id>1</issue_id>
+		<added_by>2</added_by>
+		<add_date>2012-08-12</add_date>
+		<text>ksjfskledf</text>
+	</comment>
+	<comment id="4">
+		<issue_id>2</issue_id>
+		<added_by>1</added_by>
+		<add_date>2012-08-12</add_date>
+		<text>asdjakldjakldj</text>
 	</comment>
 </comments>

@@ -2,19 +2,22 @@ package org.training.issuetracker.comments;
 
 import java.util.Date;
 
-public class Comment {
-	
+import org.training.issuetracker.items.Item;
+
+public class Comment implements Item {
+
 	private long id;
 	private long issueId;
 	private long addedBy;
 	private Date addDate;
 	private String text;
-	
+
 	public Comment() {
 		super();
 	}
 
-	public Comment(long id, long issueId, long addedBy, Date addDate, String text) {
+	public Comment(long id, long issueId, long addedBy, Date addDate,
+			String text) {
 		super();
 		this.id = id;
 		this.issueId = issueId;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<users>
+<users xmlns="http://www.training.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.training.org users.xsd">
 	<user id="1">
 		<first_name>John</first_name>
 		<last_name>Black</last_name>
@@ -12,6 +13,13 @@
 		<last_name>Brown</last_name>
 		<email_address>jack_brown_@gmail.com</email_address>
 		<role>administrator</role>
-		<password>95038958hdfgj</password>
+		<password>9503?8958hdfgj-,.-,.?!)(:@$%</password>
+	</user>
+	<user id="3">
+		<first_name>John</first_name>
+		<last_name>Black</last_name>
+		<email_address>test@test.com</email_address>
+		<role>user</role>
+		<password>12345</password>
 	</user>
 </users>

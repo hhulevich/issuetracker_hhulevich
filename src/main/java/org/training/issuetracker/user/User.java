@@ -1,14 +1,16 @@
 package org.training.issuetracker.user;
 
-public class User {
+import org.training.issuetracker.items.Item;
 
-	private Long id;
+public class User implements Item {
+
+	private long id;
 	private String firstName;
 	private String lastName;
 	private String emailAddress;
 	private String role;
 	private String password;
-	
+
 	public User() {
 		super();
 	}
@@ -24,11 +26,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
