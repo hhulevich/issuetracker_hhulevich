@@ -6,29 +6,41 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.training.issuetracker.comments.CommentView;
 import org.training.issuetracker.issues.IssueView;
+import org.training.issuetracker.res.Constants;
 
+/**
+ * @author Hanna Hulevich
+ *
+ */
 public class IssuePage extends AbstractPage {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 *
+	 */
 	public IssuePage() {
 		super();
 		setTittle("Issue Page");
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.pages.AbstractPage#printPageContent(javax.servlet.http.HttpServletRequest,
+	 * javax.servlet.http.HttpServletResponse)
+	 */
 	@Override
 	public void printPageContent(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
-		HttpSession session = request.getSession();
-		List<CommentView> comments = extractComments(session);
-		IssueView issue = (IssueView) session.getAttribute("issue");
+		@SuppressWarnings("unchecked")
+		List<CommentView> comments = (List<CommentView>) request
+				.getAttribute(Constants.KEY_COMMENTS_LIST);
+		IssueView issue = (IssueView) request.getAttribute(Constants.KEY_ISSUE);
 		PrintWriter out = response.getWriter();
 		out.println("<table border='1'>");
 		out.println("<tbody>");
@@ -77,10 +89,5 @@ public class IssuePage extends AbstractPage {
 				out.println("</div>");
 			}
 		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	private List<CommentView> extractComments(HttpSession session) {
-		return (List<CommentView>) session.getAttribute("comments");
 	}
 }

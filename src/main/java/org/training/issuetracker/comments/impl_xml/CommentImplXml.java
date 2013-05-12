@@ -10,22 +10,41 @@ import org.training.issuetracker.items.Item;
 import org.training.issuetracker.res.Constants;
 import org.xml.sax.Attributes;
 
+/**
+ * @author Hanna Hulevich
+ *
+ */
 public class CommentImplXml extends AbstractItemImplXml implements CommentDAO {
 
 	private List<Comment> comments = new ArrayList<Comment>();
 	private TagsEnum currentEnum = null;
 	private Comment comment;
 
+	/**
+	 *
+	 */
 	public CommentImplXml() {
 		super();
-		this.xmlFile = Constants.COMMENTS_FILE_XML;
+		setXmlFile(Constants.COMMENTS_FILE_XML);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.training.issuetracker.comments.factory.CommentDAO#getCommentById(
+	 * long, java.lang.String[])
+	 */
 	@Override
 	public Comment getCommentById(long id, String... realPath) {
 		return (Comment) getItemById(id, realPath[0]);
 	}
 
+	/**
+	 * @param realPath
+	 *            String
+	 * @return List<Comment>
+	 */
 	private List<Comment> getComments(String realPath) {
 		if (comments.isEmpty()) {
 			parse(realPath);
@@ -33,6 +52,13 @@ public class CommentImplXml extends AbstractItemImplXml implements CommentDAO {
 		return comments;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.training.issuetracker.items.AbstractItemImplXml#startElement(java
+	 * .lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attrs) {
@@ -47,6 +73,13 @@ public class CommentImplXml extends AbstractItemImplXml implements CommentDAO {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.training.issuetracker.items.AbstractItemImplXml#endElement(java.lang
+	 * .String, java.lang.String, java.lang.String)
+	 */
 	@Override
 	public void endElement(String uri, String localName, String qName) {
 		if (qName.toUpperCase().equals(TagsEnum.COMMENT.toString())) {
@@ -55,6 +88,13 @@ public class CommentImplXml extends AbstractItemImplXml implements CommentDAO {
 		currentEnum = null;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.training.issuetracker.items.AbstractItemImplXml#characters(char[],
+	 * int, int)
+	 */
 	@Override
 	public void characters(char[] ch, int start, int length) {
 		String s = new String(ch, start, length).trim();
@@ -79,18 +119,31 @@ public class CommentImplXml extends AbstractItemImplXml implements CommentDAO {
 		}
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.training.issuetracker.items.AbstractItemImplXml#getItems(java.lang
+	 * .String)
+	 */
 	@Override
 	protected List<Item> getItems(String realPath) {
 		return new ArrayList<Item>(getComments(realPath));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see
+	 * org.training.issuetracker.comments.factory.CommentDAO#getCommentsByIssueId
+	 * (long, java.lang.String[])
+	 */
 	@Override
 	public List<Comment> getCommentsByIssueId(long issueId, String... realPath) {
 		List<Comment> issueComments = new ArrayList<Comment>();
-		List<Comment> comments = getComments(realPath[0]);
-		for (Comment comment : comments) {
-			if (comment.getIssueId() == issueId) {
-				issueComments.add(comment);
+		for (Comment curComment : getComments(realPath[0])) {
+			if (curComment.getIssueId() == issueId) {
+				issueComments.add(curComment);
 			}
 		}
 		return issueComments;

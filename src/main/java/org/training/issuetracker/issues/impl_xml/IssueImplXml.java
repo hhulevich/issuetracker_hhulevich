@@ -10,22 +10,38 @@ import org.training.issuetracker.items.Item;
 import org.training.issuetracker.res.Constants;
 import org.xml.sax.Attributes;
 
+/**
+ * @author Hanna Hulevich
+ *
+ */
 public class IssueImplXml extends AbstractItemImplXml implements IssueDAO {
 
 	private List<Issue> issues = new ArrayList<Issue>();
 	private TagsEnum currentEnum = null;
 	private Issue issue;
 
+	/**
+	 *
+	 */
 	public IssueImplXml() {
 		super();
-		this.xmlFile = Constants.ISSUES_FILE_XML;
+		setXmlFile(Constants.ISSUES_FILE_XML);
 	}
 
+	/**
+	 * @param id long
+	 * @param realPath String[]
+	 * @return Issue
+	 */
 	@Override
-	public Issue getIssueById(Long id, String... realPath) {
+	public Issue getIssueById(long id, String... realPath) {
 		return (Issue) getItemById(id, realPath[0]);
 	}
 
+	/**
+	 * @param realPath String
+	 * @return List<Issue>
+	 */
 	@Override
 	public List<Issue> getIssues(String realPath) {
 		if (issues.isEmpty()) {
@@ -34,6 +50,10 @@ public class IssueImplXml extends AbstractItemImplXml implements IssueDAO {
 		return issues;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#startElement(java.lang.String,
+	 * java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attrs) {
@@ -48,6 +68,9 @@ public class IssueImplXml extends AbstractItemImplXml implements IssueDAO {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	@Override
 	public void endElement(String uri, String localName, String qName) {
 		if (qName.toUpperCase().equals(TagsEnum.ISSUE.toString())) {
@@ -56,6 +79,9 @@ public class IssueImplXml extends AbstractItemImplXml implements IssueDAO {
 		currentEnum = null;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#characters(char[], int, int)
+	 */
 	@Override
 	public void characters(char[] ch, int start, int length) {
 		String s = new String(ch, start, length).trim();
@@ -97,7 +123,7 @@ public class IssueImplXml extends AbstractItemImplXml implements IssueDAO {
 			issue.setProject(s);
 			break;
 		case BUILD_FOUND:
-			issue.setBuild_found(Integer.valueOf(s));
+			issue.setBuildFound(Integer.valueOf(s));
 			break;
 		case ASSIGNEE:
 			issue.setAssignee(Long.valueOf(s));
@@ -106,6 +132,9 @@ public class IssueImplXml extends AbstractItemImplXml implements IssueDAO {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#getItems(java.lang.String)
+	 */
 	@Override
 	protected List<Item> getItems(String realPath) {
 		return new ArrayList<Item>(getIssues(realPath));

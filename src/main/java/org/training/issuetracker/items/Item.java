@@ -1,6 +1,13 @@
 package org.training.issuetracker.items;
 
+/**
+ * @author Hanna Hulevich
+ *
+ */
 public interface Item {
-	
-	public long getId();
+
+	/**
+	 * @return long
+	 */
+	long getId();
 }

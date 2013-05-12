@@ -10,29 +10,43 @@ import org.training.issuetracker.user.User;
 import org.training.issuetracker.user.factory.UserDAO;
 import org.xml.sax.Attributes;
 
+/**
+ * @author Hanna Hulevich
+ *
+ */
 public class UserImplXml extends AbstractItemImplXml implements UserDAO {
 
 	private List<User> users = new ArrayList<User>();
 	private User user;
 	private TagsEnum currentEnum = null;
 
+	/**
+	 *
+	 */
 	public UserImplXml() {
 		super();
-		this.xmlFile = Constants.USERS_FILE_XML;
+		setXmlFile(Constants.USERS_FILE_XML);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.user.factory.UserDAO#getUser(java.lang.String, java.lang.String, java.lang.String[])
+	 */
 	@Override
 	public User getUser(String email, String password, String... realPath) {
-		List<User> users = getUsers(realPath[0]);
-		for (User user : users) {
-			if (user.getEmailAddress().equals(email)
-					&& user.getPassword().equals(password)) {
-				return user;
+		List<User> localUsers = getUsers(realPath[0]);
+		for (User currentUser : localUsers) {
+			if (currentUser.getEmailAddress().equals(email)
+					&& currentUser.getPassword().equals(password)) {
+				return currentUser;
 			}
 		}
 		return null;
 	}
 
+	/**
+	 * @param realPath String
+	 * @return List<User>
+	 */
 	private List<User> getUsers(String realPath) {
 		if (users.isEmpty()) {
 			parse(realPath);
@@ -40,11 +54,18 @@ public class UserImplXml extends AbstractItemImplXml implements UserDAO {
 		return users;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.user.factory.UserDAO#getUserById(long, java.lang.String[])
+	 */
 	@Override
 	public User getUserById(long id, String... realPath) {
 		return (User) getItemById(id, realPath[0]);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#startElement(java.lang.String,
+	 * java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attrs) {
@@ -59,6 +80,9 @@ public class UserImplXml extends AbstractItemImplXml implements UserDAO {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	@Override
 	public void endElement(String uri, String localName, String qName) {
 		if (qName.toUpperCase().equals(TagsEnum.USER.toString())) {
@@ -67,6 +91,9 @@ public class UserImplXml extends AbstractItemImplXml implements UserDAO {
 		currentEnum = null;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#characters(char[], int, int)
+	 */
 	@Override
 	public void characters(char[] ch, int start, int length) {
 		String s = new String(ch, start, length).trim();
@@ -90,6 +117,9 @@ public class UserImplXml extends AbstractItemImplXml implements UserDAO {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.training.issuetracker.items.AbstractItemImplXml#getItems(java.lang.String)
+	 */
 	@Override
 	protected List<Item> getItems(String realPath) {
 		return new ArrayList<Item>(getUsers(realPath));

@@ -16,10 +16,31 @@ import org.training.issuetracker.issues.IssueView;
 import org.training.issuetracker.issues.factory.IssueDAO;
 import org.training.issuetracker.user.User;
 import org.training.issuetracker.user.factory.UserDAO;
-import org.training.issuetracker.view.comparators.*;
+import org.training.issuetracker.view.comparators.AssegneeAscendingComparator;
+import org.training.issuetracker.view.comparators.AssigneeDescendingComparator;
+import org.training.issuetracker.view.comparators.IdAscendingComparator;
+import org.training.issuetracker.view.comparators.IdDescendingComparator;
+import org.training.issuetracker.view.comparators.PriorityAscendingComparator;
+import org.training.issuetracker.view.comparators.PriorityDescendingComparator;
+import org.training.issuetracker.view.comparators.StatusAscendingComparator;
+import org.training.issuetracker.view.comparators.StatusDescendingComparator;
+import org.training.issuetracker.view.comparators.SummaryAscendingComparator;
+import org.training.issuetracker.view.comparators.SummaryDescendingComparator;
+import org.training.issuetracker.view.comparators.TypeAscendingComparator;
+import org.training.issuetracker.view.comparators.TypeDescendingComparator;
 
+/**
+ * @author Hanna Hulevich
+ *
+ */
 public class ViewService {
 
+	/**
+	 * @param issueDAO IssueDAO
+	 * @param userDAO UserDAO
+	 * @param realPath String
+	 * @return List<IssueFromList>
+	 */
 	public List<IssueFromList> getIssueList(IssueDAO issueDAO, UserDAO userDAO,
 			String... realPath) {
 		List<IssueFromList> issueList = new ArrayList<IssueFromList>();
@@ -39,6 +60,13 @@ public class ViewService {
 		return issueList;
 	}
 
+	/**
+	 * @param issueId long
+	 * @param issueDAO IssueDAO
+	 * @param userDAO UserDAO
+	 * @param realPath String[]
+	 * @return IssueView
+	 */
 	public IssueView getIssueView(long issueId, IssueDAO issueDAO,
 			UserDAO userDAO, String... realPath) {
 		IssueView issueView = new IssueView();
@@ -62,6 +90,13 @@ public class ViewService {
 		return issueView;
 	}
 
+	/**
+	 * @param issueId long
+	 * @param commentDAO CommentDAO
+	 * @param userDAO UserDAO
+	 * @param realPath String[]
+	 * @return List<CommentView>
+	 */
 	public List<CommentView> getCommentsView(long issueId,
 			CommentDAO commentDAO, UserDAO userDAO, String... realPath) {
 		List<CommentView> commentsView = new ArrayList<CommentView>();
@@ -79,6 +114,12 @@ public class ViewService {
 		return commentsView;
 	}
 
+	/**
+	 * @param issueId long
+	 * @param userDAO UserDAO
+	 * @param realPath String[]
+	 * @return
+	 */
 	private String getAssignee(long issueId, UserDAO userDAO,
 			String... realPath) {
 		User user = userDAO.getUserById(issueId, realPath);
@@ -89,14 +130,26 @@ public class ViewService {
 		}
 	}
 
+	/**
+	 * @param date Date
+	 * @return String
+	 */
 	private static String formatDate(Date date) {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		return df.format(date);
 	}
-	
-	public List<IssueFromList> getSortedViewIssues(List<IssueFromList> issues, int issuesNumber, String sortParameter) {
+
+	/**
+	 * @param issues List<IssueFromList>
+	 * @param issuesNumber int
+	 * @param sortParameter String
+	 * @return List<IssueFromList>
+	 */
+	public List<IssueFromList> getSortedViewIssues(List<IssueFromList> issues,
+			int issuesNumber, String sortParameter) {
 		if (sortParameter != null) {
-			SortParametersEnum currentEnum = SortParametersEnum.valueOf(sortParameter.toUpperCase());
+			SortParametersEnum currentEnum = SortParametersEnum
+					.valueOf(sortParameter.toUpperCase());
 			switch (currentEnum) {
 			case ID_ASC:
 				Collections.sort(issues, new IdAscendingComparator());
@@ -117,7 +170,7 @@ public class ViewService {
 				Collections.sort(issues, new AssigneeDescendingComparator());
 				break;
 			case STATUS_ASC:
-			Collections.sort(issues, new StatusAscendingComparator());
+				Collections.sort(issues, new StatusAscendingComparator());
 				break;
 			case STATUS_DESC:
 				Collections.sort(issues, new StatusDescendingComparator());
@@ -126,9 +179,9 @@ public class ViewService {
 				Collections.sort(issues, new SummaryAscendingComparator());
 				break;
 			case SUMMARY_DESC:
-			Collections.sort(issues, new SummaryDescendingComparator());
+				Collections.sort(issues, new SummaryDescendingComparator());
 				break;
-			case TYPE_ASC: 
+			case TYPE_ASC:
 				Collections.sort(issues, new TypeAscendingComparator());
 				break;
 			case TYPE_DESC:
@@ -137,8 +190,8 @@ public class ViewService {
 				break;
 			}
 		}
-		
-		if (issues.size()<issuesNumber) {
+
+		if (issues.size() < issuesNumber) {
 			return issues;
 		}
 		return issues.subList(0, issuesNumber);

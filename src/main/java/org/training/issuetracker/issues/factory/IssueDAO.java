@@ -4,9 +4,22 @@ import java.util.List;
 
 import org.training.issuetracker.issues.Issue;
 
+/**
+ * @author Hanna Hulevich
+ *
+ */
 public interface IssueDAO {
 
-	public Issue getIssueById(Long id, String... realPath);
+	/**
+	 * @param id long
+	 * @param realPath String[]
+	 * @return Issue
+	 */
+	Issue getIssueById(long id, String... realPath);
 
-	public List<Issue> getIssues(String realPath);
+	/**
+	 * @param realPath String
+	 * @return List<Issue>
+	 */
+	List<Issue> getIssues(String realPath);
 }
